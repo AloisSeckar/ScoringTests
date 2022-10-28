@@ -1,9 +1,13 @@
 <template>
   <div>
     <TheHeader />
-    <TheTester />
+    <TheQuestion />
   </div>
 </template>
+
+<script setup lang="ts">
+useQuestionsStore().loadQuestions()
+</script>
 
 <style>
 .question-box {
