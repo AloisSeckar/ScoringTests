@@ -2,6 +2,7 @@
   <div>
     <TheHeader />
     <TheQuestion />
+    <TheFooter />
   </div>
 </template>
 
