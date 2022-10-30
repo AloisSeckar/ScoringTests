@@ -2,6 +2,7 @@
   <div>
     <TheHeader />
     <TheQuestion />
+    <TheControls />
     <TheFooter />
   </div>
 </template>
@@ -27,5 +28,14 @@ useQuestionsStore().loadQuestions()
   border: 1px solid black;
   border-collapse: true;
   padding: 5px;
+}
+.controls-box {
+  border: 2px solid black;
+  background-color: navy;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
 }
 </style>
