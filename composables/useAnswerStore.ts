@@ -1,3 +1,4 @@
+import Question from '@/data/Question'
 import { defineStore } from 'pinia'
 
 export const useAnswerStore = defineStore({
@@ -8,9 +9,16 @@ export const useAnswerStore = defineStore({
             a2: false as boolean,
             a3: false as boolean,
             a4: false as boolean,
+            current: null as Question,
+            answered: false as boolean,
+            correct: false as boolean,
         }
     },
     actions: {
+        setQuestion(): void {
+            this.current = useQuestionsStore().getRandomQuestion
+            this.answered = false
+        }
     },
     getters: {
         getAnswerString(): string {

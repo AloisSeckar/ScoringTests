@@ -14,7 +14,7 @@
 
 import Question from '@/data/Question'
 
-const data: Question = useQuestionsStore().getRandomQuestion
+const data: Question = useAnswerStore().current
 
 const onSelectAnswer = (id: string, multiple: boolean, element: HTMLInputElement) => {
     const answer = useAnswerStore()
@@ -35,8 +35,6 @@ const onSelectAnswer = (id: string, multiple: boolean, element: HTMLInputElement
             answer.a4 = element.checked
             break;
     }
-
-    console.log(answer.getAnswerString)
 }
 
 </script>

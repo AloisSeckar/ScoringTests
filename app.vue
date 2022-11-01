@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 useQuestionsStore().loadQuestions()
+useAnswerStore().setQuestion()
 </script>
 
 <style>

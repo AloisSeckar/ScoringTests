@@ -6,8 +6,7 @@ export const useQuestionsStore = defineStore({
   id: 'questions-store',
   state: () => {
     return {
-      questions: [] as Question[],
-      selected: null as Question
+      questions: [] as Question[]
     }
   },
   actions: {
