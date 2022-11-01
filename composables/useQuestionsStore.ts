@@ -16,7 +16,7 @@ export const useQuestionsStore = defineStore({
   },
   getters: {
     getRandomQuestion(): Question {
-      return this.questions[Math.floor(Math.random() * this.questions.length)]
+      return questions[Math.floor(Math.random() * questions.length)] as Question
     }
   },
 })

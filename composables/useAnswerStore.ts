@@ -5,11 +5,11 @@ export const useAnswerStore = defineStore({
     id: 'answer-store',
     state: () => {
         return {
-            a1: false as boolean,
-            a2: false as boolean,
-            a3: false as boolean,
-            a4: false as boolean,
-            current: null as Question,
+            a: false as boolean,
+            b: false as boolean,
+            c: false as boolean,
+            d: false as boolean,
+            current: {} as Question,
             answered: false as boolean,
             correct: false as boolean,
         }
@@ -23,16 +23,16 @@ export const useAnswerStore = defineStore({
     getters: {
         getAnswerString(): string {
             let answerString: string = ''
-            if (this.a1) {
+            if (this.a) {
                 answerString += 'a'
             }
-            if (this.a2) {
+            if (this.b) {
                 answerString += 'b'
             }
-            if (this.a3) {
+            if (this.c) {
                 answerString += 'c'
             }
-            if (this.a4) {
+            if (this.d) {
                 answerString += 'd'
             }
             return answerString
