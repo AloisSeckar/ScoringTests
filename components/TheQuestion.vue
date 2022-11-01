@@ -1,6 +1,6 @@
 <template>
     <div class="question-box">
-        <div class="question-text" v-html="answer.current.question"></div>
+        <div class="question-text" v-html="data.current.question"></div>
         <div>
             <TheAnswers @select-answer="onSelectAnswer"/>
         </div>
@@ -9,24 +9,24 @@
 
 <script setup lang="ts">
 
-const answer = useAnswerStore()
+const data = useQuestionStore()
 
 const onSelectAnswer = (id: string, multiple: boolean, element: HTMLInputElement) => {
     if (!multiple) {
-        answer.$reset()
+        data.clearAnswer()
     }
     switch (id) {
         case 'a':
-            answer.a = element.checked
+            data.answer.a = element.checked
             break;
         case 'b':
-            answer.b = element.checked
+            data.answer.b = element.checked
             break;
         case 'c':
-            answer.c = element.checked
+            data.answer.c = element.checked
             break;
         case 'd':
-            answer.d = element.checked
+            data.answer.d = element.checked
             break;
     }
 }

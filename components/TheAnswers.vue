@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 
-const data = useAnswerStore()
+const data = useQuestionStore()
 const inputType = computed(() => data.current.multiple ? 'checkbox' : 'radio');
 
 defineEmits<{

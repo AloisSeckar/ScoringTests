@@ -2,19 +2,21 @@
     <div class="controls-box">
         <input type="button" value="Odpovědět" @click="submitAnswer" />
         <input type="button" value="Další otázka" @click="resetAnswer" />
-        <div class="result" v-show="answer.answered && answer.correct">SPRÁVNĚ</div>
-        <div class="result" v-show="answer.answered && !answer.correct">ŠPATNĚ</div>
+        <div class="result" v-show="data.answer.answered && data.answer.correct">SPRÁVNĚ</div>
+        <div class="result" v-show="data.answer.answered && !data.answer.correct">ŠPATNĚ</div>
     </div>
 </template>
 
 <script setup lang="ts">
-const answer = useAnswerStore()
+const data = useQuestionStore()
 const submitAnswer = () => {
-    answer.correct = answer.current.solution === answer.getAnswerString
-    answer.answered = true
+    console.log(data.current.solution)
+    console.log(data.getAnswerString)
+    data.answer.correct = data.current.solution === data.getAnswerString
+    data.answer.answered = true
 }
 const resetAnswer = () => {
-    answer.setQuestion()
+    data.setQuestion()
 }
 </script>
 

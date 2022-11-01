@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-useQuestionsStore().loadQuestions()
-useAnswerStore().setQuestion()
+useQuestionStore().loadQuestions()
+useQuestionStore().setQuestion()
 </script>
 
 <style>
