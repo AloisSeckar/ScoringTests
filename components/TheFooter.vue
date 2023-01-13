@@ -1,7 +1,7 @@
 <template>
     <div>
         <hr />
-        <p>2022 &copy; <a href="http://alois-seckar.cz/">Alois Sečkár</a></p>
+        <p>2023 &copy; <a href="http://alois-seckar.cz/">Alois Sečkár</a></p>
     </div>
 </template>
 

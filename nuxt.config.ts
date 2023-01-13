@@ -1,5 +1,5 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/guide/directory-structure/nuxt.config
 export default defineNuxtConfig({
-    buildModules: ['@pinia/nuxt'],
-    ssr: false
+    ssr: false,
+    modules: ['@pinia/nuxt'],
 })

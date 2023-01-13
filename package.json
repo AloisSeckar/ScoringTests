@@ -8,11 +8,11 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.12"
+    "nuxt": "3.0.0"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.3",
-    "pinia": "^2.0.23"
+    "@pinia/nuxt": "^0.4.6",
+    "pinia": "^2.0.28"
   },
   "overrides": {
     "vue": "3"
