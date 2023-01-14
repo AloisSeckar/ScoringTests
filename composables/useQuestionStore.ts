@@ -16,7 +16,7 @@ export const useQuestionStore = defineStore({
       const supabase = useSupabaseClient()
       const { data, error } = await supabase
         .from("questions")
-        .select("id, question, answer1, answer2, answer3, answer4, multiple, solution")
+        .select("id, question, answer1, answer2, answer3, answer4, solution")
         .eq("valid", true)
 
       if (data) {

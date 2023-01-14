@@ -5,7 +5,6 @@ type Question = {
     answer2: string,
     answer3: string,
     answer4: string,
-    multiple: boolean,
     solution: string,
 }
 

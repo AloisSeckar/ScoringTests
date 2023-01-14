@@ -12,10 +12,7 @@
 const data = useQuestionStore()
 const currentQuestion = computed(() => data.current?.question)
 
-const onSelectAnswer = (id: string, multiple: boolean, element: HTMLInputElement) => {
-    if (!multiple) {
-        data.clearAnswer()
-    }
+const onSelectAnswer = (id: string, element: HTMLInputElement) => {
     switch (id) {
         case 'a':
             data.answer.a = element.checked
