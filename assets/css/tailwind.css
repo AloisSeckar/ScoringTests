@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    h1 {
+        @apply ml-4 inline text-5xl text-indigo-800 font-bold;
+    }
+
+}
+
+@layer components {
+
+    .question-box {
+        @apply mx-auto w-3/5 border-2 border-black;
+    }
+    .question-text {
+        @apply p-2 border-b border-black bg-indigo-800 text-white font-bold;
+    }
+    .question-answer {
+        @apply p-2 border border-black border-collapse;
+    }
+
+    .controls-box {
+        @apply mx-auto mt-2 p-2 w-3/5 border-2 border-black bg-indigo-800 text-white text-center;
+    }
+
+    .control {
+        @apply m-1 px-2 py-1 border border-white rounded hover:bg-indigo-300 hover:text-black
+    }
+
+    .result {
+        @apply mt-2 text-xl font-bold;
+    }
+    .good {
+        @apply text-green-600;
+    }
+    .bad {
+        @apply text-red-700;
+    }
+
+}
+
+

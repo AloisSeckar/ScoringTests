@@ -1,9 +1,9 @@
 <template>
     <div class="controls-box">
-        <input type="button" value="Odpovědět" @click="submitAnswer" />
-        <input type="button" value="Další otázka" @click="resetAnswer" />
-        <div class="result" v-show="data.answer.answered && data.answer.correct">SPRÁVNĚ</div>
-        <div class="result" v-show="data.answer.answered && !data.answer.correct">ŠPATNĚ</div>
+        <input class="control" type="button" value="Odpovědět" @click="submitAnswer" />
+        <input class="control" type="button" value="Další otázka" @click="resetAnswer" />
+        <div class="result good" v-show="data.answer.answered && data.answer.correct">SPRÁVNĚ</div>
+        <div class="result bad" v-show="data.answer.answered && !data.answer.correct">ŠPATNĚ</div>
     </div>
 </template>
 
@@ -19,13 +19,3 @@ const resetAnswer = () => {
     data.setQuestion()
 }
 </script>
-
-<style>
-div.result {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    padding-top: 10px;
-}
-</style>
-

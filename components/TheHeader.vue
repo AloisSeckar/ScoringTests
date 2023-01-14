@@ -16,12 +16,6 @@ img {
     height: 100px;
 }
 
-h1 {
-    display: inline;
-    margin-left: 15px;
-    font-size: 48px;
-}
-
 span {
     position: absolute;
     right: 0px;
