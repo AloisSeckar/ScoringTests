@@ -21,6 +21,16 @@
     .question-answer {
         @apply p-2 border border-black border-collapse;
     }
+    .question-answer-item {
+        @apply my-2;
+    }
+    .question-answer-item > input {
+        @apply h-6 w-6;
+    }
+    .question-answer-item > label {
+        @apply mx-2;
+    }
+
 
     .controls-box {
         @apply mx-auto mt-2 p-2 w-3/5 border-2 border-black bg-indigo-800 text-white text-center;
