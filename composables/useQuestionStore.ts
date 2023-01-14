@@ -1,6 +1,5 @@
 import Answer from '@/data/Answer'
 import Question from '@/data/Question'
-import questions from "@/data/sampleQuestions"
 import { defineStore } from 'pinia'
 
 export const useQuestionStore = defineStore({
@@ -13,11 +12,24 @@ export const useQuestionStore = defineStore({
     }
   },
   actions: {
-    loadQuestions() {
-      this.questions = questions
+    async loadQuestions() {
+      const supabase = useSupabaseClient()
+      const { data, error } = await supabase
+        .from("questions")
+        .select("id, question, answer1, answer2, answer3, answer4, multiple, solution")
+        .eq("valid", true)
+
+      if (data) {
+          console.debug("'questions' loaded from Supabase")
+          this.questions = data
+          this.setQuestion()
+      } else {
+        console.error("failed to load 'questions' from Supabase")
+        console.error(error)
+      }
     },
     setQuestion(): void {
-      this.current = questions[Math.floor(Math.random() * questions.length)] as Question
+      this.current = this.questions[Math.floor(Math.random() * this.questions.length)] as Question
       this.clearAnswer()
     },
     clearAnswer(): void {
