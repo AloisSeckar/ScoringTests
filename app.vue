@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-useQuestionStore().loadQuestions(5)
+useQuestionStore().loadQuestions()
 </script>

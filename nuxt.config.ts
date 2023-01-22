@@ -2,4 +2,9 @@
 export default defineNuxtConfig({
     ssr: false,
     modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss', '@pinia/nuxt'],
+    runtimeConfig: {
+        public: {
+            testLength: 5
+        }
+    }
 })
