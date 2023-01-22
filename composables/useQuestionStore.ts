@@ -7,8 +7,8 @@ export const useQuestionStore = defineStore({
   state: () => {
     return {
       questions: [] as Question[],
-      current: {} as Question,
-      answer: {} as Answer,
+      answers: [] as Answer[],
+      current: 0,
     }
   },
   actions: {
@@ -21,38 +21,48 @@ export const useQuestionStore = defineStore({
         .limit(amount)
 
       if (data) {
-          console.debug("'questions' loaded from Supabase")
-          this.questions = data
-          this.setQuestion()
+        console.debug("'questions' loaded from Supabase")
+        this.questions = data
       } else {
         console.error("failed to load 'questions' from Supabase")
         console.error(error)
       }
     },
-    setQuestion(): void {
-      this.current = this.questions[Math.floor(Math.random() * this.questions.length)] as Question
-      this.clearAnswer()
+    previousQuestion(): void {
+      if (this.current > 0) {
+        this.current--
+      }
     },
-    clearAnswer(): void {
-      this.answer = {} as Answer
+    nextQuestion(): void {
+      if (this.current < 5) {
+        this.current++
+      }
+    },
+    clearAnswer(index: number): void {
+      if (0 <= index && index < 5) {
+        this.answers[index] = {} as Answer
+      }
     }
   },
   getters: {
-    getAnswerString(): string {
-      let answerString: string = ''
-      if (this.answer.a) {
-        answerString += 'a'
+    getAnswerString: (state) => {
+      return (index: number): string => {
+        const answer = state.answers[index]
+        let answerString: string = ''
+        if (answer.a) {
+          answerString += 'a'
+        }
+        if (answer.b) {
+          answerString += 'b'
+        }
+        if (answer.c) {
+          answerString += 'c'
+        }
+        if (answer.d) {
+          answerString += 'd'
+        }
+        return answerString
       }
-      if (this.answer.b) {
-        answerString += 'b'
-      }
-      if (this.answer.c) {
-        answerString += 'c'
-      }
-      if (this.answer.d) {
-        answerString += 'd'
-      }
-      return answerString
-    }
-  },
+    },
+  }
 })

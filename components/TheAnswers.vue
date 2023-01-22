@@ -22,10 +22,11 @@
 <script setup lang="ts">
 
 const data = useQuestionStore()
-const answer1 = computed(() => data.current?.answer1);
-const answer2 = computed(() => data.current?.answer2);
-const answer3 = computed(() => data.current?.answer3);
-const answer4 = computed(() => data.current?.answer4);
+const currentQuestion = computed(() => data.questions[data.current])
+const answer1 = computed(() => currentQuestion.value?.answer1);
+const answer2 = computed(() => currentQuestion.value?.answer2);
+const answer3 = computed(() => currentQuestion.value?.answer3);
+const answer4 = computed(() => currentQuestion.value?.answer4);
 
 defineEmits<{
     (e: 'selectAnswer', id: string, element: HTMLInputElement): void

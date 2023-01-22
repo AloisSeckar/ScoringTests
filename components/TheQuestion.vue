@@ -10,21 +10,22 @@
 <script setup lang="ts">
 
 const data = useQuestionStore()
-const currentQuestion = computed(() => data.current?.question)
+const currentQuestion = computed(() => data.questions[data.current]?.question)
+const currentAnswer = computed(() => data.answers[data.current])
 
 const onSelectAnswer = (id: string, element: HTMLInputElement) => {
     switch (id) {
         case 'a':
-            data.answer.a = element.checked
+            currentAnswer.value.a = element.checked
             break;
         case 'b':
-            data.answer.b = element.checked
+            currentAnswer.value.b = element.checked
             break;
         case 'c':
-            data.answer.c = element.checked
+            currentAnswer.value.c = element.checked
             break;
         case 'd':
-            data.answer.d = element.checked
+            currentAnswer.value.d = element.checked
             break;
     }
 }
