@@ -8,5 +8,5 @@
 </template>
 
 <script setup lang="ts">
-useQuestionStore().loadQuestions()
+useQuestionStore().loadQuestions(5)
 </script>

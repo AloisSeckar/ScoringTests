@@ -12,12 +12,13 @@ export const useQuestionStore = defineStore({
     }
   },
   actions: {
-    async loadQuestions() {
+    async loadQuestions(amount: number) {
       const supabase = useSupabaseClient()
       const { data, error } = await supabase
         .from("questions")
         .select("id, question, answer1, answer2, answer3, answer4, solution")
         .eq("valid", true)
+        .limit(amount)
 
       if (data) {
           console.debug("'questions' loaded from Supabase")
