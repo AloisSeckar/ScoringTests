@@ -45,6 +45,8 @@ export const useQuestionStore = defineStore({
     }
   },
   getters: {
+    getCurrentQuestion: (state): Question => state.questions[state.current],
+    getCurrentAnswer: (state): Answer => state.answers[state.current],
     getAnswerString: (state) => {
       return (index: number): string => {
         const answer = state.answers[index]

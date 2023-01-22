@@ -1,6 +1,6 @@
 <template>
     <div class="question-box">
-        <div class="question-text" v-html="currentQuestion"></div>
+        <div class="question-text" v-html="currentQuestion?.question"></div>
         <div>
             <TheAnswers @select-answer="onSelectAnswer"/>
         </div>
@@ -8,10 +8,9 @@
 </template>
 
 <script setup lang="ts">
-
 const data = useQuestionStore()
-const currentQuestion = computed(() => data.questions[data.current]?.question)
-const currentAnswer = computed(() => data.answers[data.current])
+const currentQuestion = computed(() => data.getCurrentQuestion)
+const currentAnswer = computed(() => data.getCurrentAnswer)
 
 const onSelectAnswer = (id: string, element: HTMLInputElement) => {
     switch (id) {

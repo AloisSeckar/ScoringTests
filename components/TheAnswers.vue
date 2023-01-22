@@ -20,9 +20,9 @@
 </template>
 
 <script setup lang="ts">
-
 const data = useQuestionStore()
-const currentQuestion = computed(() => data.questions[data.current])
+const currentQuestion = computed(() => data.getCurrentQuestion)
+
 const answer1 = computed(() => currentQuestion.value?.answer1);
 const answer2 = computed(() => currentQuestion.value?.answer2);
 const answer3 = computed(() => currentQuestion.value?.answer3);
