@@ -34,7 +34,7 @@ export const useQuestionStore = defineStore({
       }
     },
     nextQuestion(): void {
-      if (this.current < 5) {
+      if (this.current < useRuntimeConfig().public.testLength - 1) {
         this.current++
       }
     },

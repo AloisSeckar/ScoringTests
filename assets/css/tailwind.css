@@ -45,7 +45,8 @@
     }
 
     .control {
-        @apply mx-1 my-2 px-2 py-1 border border-white rounded hover:bg-indigo-300 hover:text-black
+        @apply mx-1 my-2 px-2 py-1 border border-white rounded 
+            hover:bg-indigo-300 hover:text-black disabled:bg-gray-500 disabled:bg-gray-500 disabled:hover:text-white
     }
 
     .result {
