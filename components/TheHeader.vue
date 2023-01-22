@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="/logo.webp" alt="Czech Scorekeepers" />
+        <img src="/logo.webp" alt="Czech Scorekeepers - online test" />
         <h1>Czech Scorekeepers - online test</h1>
         <span>
             <a href="https://www.baseball.cz/"><img src="/cba.webp" alt="ČBA" /></a>

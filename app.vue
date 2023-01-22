@@ -1,8 +1,10 @@
 <template>
   <div>
     <TheHeader />
-    <TheQuestion />
-    <TheControls />
+    <div class="mx-auto p-2 w-full min-[740px]:w-4/5">
+      <TheQuestion />
+      <TheControls />
+    </div>
     <TheFooter />
   </div>
 </template>
