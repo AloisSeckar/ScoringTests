@@ -13,16 +13,21 @@ export const useQuestionStore = defineStore({
   },
   actions: {
     async loadQuestions() {
+      const testLength = useRuntimeConfig().public.testLength
+
       const supabase = useSupabaseClient()
       const { data, error } = await supabase
         .from("questions")
         .select("id, question, answer1, answer2, answer3, answer4, solution")
         .eq("valid", true)
-        .limit(useRuntimeConfig().public.testLength)
+        .limit(testLength)
 
       if (data) {
         console.debug("'questions' loaded from Supabase")
         this.questions = data
+        for (let i = 0; i < testLength; i++ ) {
+          this.answers.push({a: false, b: false, c: false, d: false, answered: false, correct: false})
+        }
       } else {
         console.error("failed to load 'questions' from Supabase")
         console.error(error)
