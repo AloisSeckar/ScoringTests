@@ -17,11 +17,14 @@
 
     }
     .logo-asoc {
-        @apply inline
+        @apply inline;
     }
 
     .question-box {
         @apply mx-auto border-2 border-black;
+    }
+    .question-box-marked {
+        @apply bg-yellow-100;
     }
     .question-text {
         @apply p-2 border-b border-black bg-indigo-800 text-white font-bold;
@@ -43,10 +46,9 @@
     .controls-box {
         @apply mx-auto border-2 border-black bg-indigo-800 text-white text-center;
     }
-
     .control {
         @apply mx-1 my-2 px-2 py-1 border border-white rounded 
-            hover:bg-indigo-300 hover:text-black disabled:bg-gray-500 disabled:bg-gray-500 disabled:hover:text-white
+            hover:bg-indigo-300 hover:text-black disabled:bg-gray-500 disabled:bg-gray-500 disabled:hover:text-white;
     }
 
     .result {
@@ -57,9 +59,6 @@
     }
     .bad {
         @apply text-red-700;
-    }
-    .marked {
-        @apply bg-yellow-100;
     }
 
 }
