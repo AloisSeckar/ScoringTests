@@ -43,6 +43,11 @@ export const useQuestionStore = defineStore({
         this.current++
       }
     },
+    markAnswer(index: number): void {
+      if (0 <= index && index < 5) {
+        this.answers[index].marked = true
+      }
+    },
     resetAnswer(index: number): void {
       if (0 <= index && index < 5) {
         this.answers[index] = getEmptyAnswer()
@@ -80,7 +85,7 @@ export function getEmptyAnswer(): Answer {
     b: false,
     c: false,
     d: false,
-    answered: false,
+    marked: false,
     correct: false
   }
 }

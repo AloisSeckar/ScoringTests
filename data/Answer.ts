@@ -3,7 +3,7 @@ type Answer = {
     b: boolean,
     c: boolean,
     d: boolean,
-    answered: boolean,
+    marked: boolean,
     correct: boolean,
 }
 

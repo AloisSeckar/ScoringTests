@@ -1,5 +1,5 @@
 <template>
-    <div class="question-box">
+    <div :class="['question-box', currentAnswer?.marked ? 'marked' : '']">
         <div class="question-text" v-html="currentQuestion?.question"></div>
         <div>
             <TheAnswers @select-answer="onSelectAnswer"/>

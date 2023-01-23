@@ -58,6 +58,9 @@
     .bad {
         @apply text-red-700;
     }
+    .marked {
+        @apply bg-yellow-100;
+    }
 
 }
 
