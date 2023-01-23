@@ -26,7 +26,7 @@ export const useQuestionStore = defineStore({
         console.debug("'questions' loaded from Supabase")
         this.questions = data
         for (let i = 0; i < testLength; i++ ) {
-          this.answers.push({a: false, b: false, c: false, d: false, answered: false, correct: false})
+          this.answers.push(getEmptyAnswer())
         }
       } else {
         console.error("failed to load 'questions' from Supabase")
@@ -43,9 +43,9 @@ export const useQuestionStore = defineStore({
         this.current++
       }
     },
-    clearAnswer(index: number): void {
+    resetAnswer(index: number): void {
       if (0 <= index && index < 5) {
-        this.answers[index] = {} as Answer
+        this.answers[index] = getEmptyAnswer()
       }
     }
   },
@@ -73,3 +73,14 @@ export const useQuestionStore = defineStore({
     },
   }
 })
+
+export function getEmptyAnswer(): Answer {
+  return {
+    a: false,
+    b: false,
+    c: false,
+    d: false,
+    answered: false,
+    correct: false
+  }
+}

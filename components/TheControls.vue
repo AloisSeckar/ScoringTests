@@ -2,7 +2,7 @@
     <div class="controls-box">
         <input class="control" type="button" value="Přechozí otázka" @click="data.previousQuestion" :disabled="prevDisabled" />
         <input class="control" type="button" value="Vyhodnotit" @click="submitAnswer" />
-        <input class="control" type="button" value="Vymazat" @click="data.clearAnswer(data.current)" />
+        <input class="control" type="button" value="Vymazat" @click="data.resetAnswer(data.current)" />
         <input class="control" type="button" value="Další otázka" @click="data.nextQuestion" :disabled="nextDisabled" />
         <div class="result good" v-show="currentAnswer?.answered && currentAnswer?.correct">SPRÁVNĚ</div>
         <div class="result bad" v-show="currentAnswer?.answered && !currentAnswer?.correct">ŠPATNĚ</div>
