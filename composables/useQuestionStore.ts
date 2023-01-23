@@ -9,23 +9,24 @@ export const useQuestionStore = defineStore({
       questions: [] as Question[],
       answers: [] as Answer[],
       current: 0,
+      finished: false,
+      totalQuestions: useRuntimeConfig().public.testLength,
+      correctAnswers: 0,
     }
   },
   actions: {
     async loadQuestions() {
-      const testLength = useRuntimeConfig().public.testLength
-
       const supabase = useSupabaseClient()
       const { data, error } = await supabase
         .from("questions")
         .select("id, question, answer1, answer2, answer3, answer4, solution")
         .eq("valid", true)
-        .limit(testLength)
+        .limit(this.totalQuestions)
 
       if (data) {
         console.debug("'questions' loaded from Supabase")
         this.questions = data
-        for (let i = 0; i < testLength; i++ ) {
+        for (let i = 0; i < this.totalQuestions; i++ ) {
           this.answers.push(getEmptyAnswer())
         }
       } else {
@@ -52,6 +53,16 @@ export const useQuestionStore = defineStore({
       if (0 <= index && index < 5) {
         this.answers[index] = getEmptyAnswer()
       }
+    },
+    evaluateTest() {
+      // TODO check for unanswered (here or in component?)
+      for (let i = 0; i < this.totalQuestions; i++) {
+        this.answers[i].correct = this.questions[i].solution === this.getAnswerString(i)
+        if (this.answers[i].correct) {
+          this.correctAnswers++
+        }
+      }
+      this.finished = true
     }
   },
   getters: {
