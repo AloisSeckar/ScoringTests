@@ -11,5 +11,5 @@
 </template>
 
 <script setup lang="ts">
-useQuestionStore().loadQuestions()
+useQuestionStore().resetTest()
 </script>

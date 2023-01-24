@@ -26,9 +26,6 @@ export const useQuestionStore = defineStore({
       if (data) {
         console.debug("'questions' loaded from Supabase")
         this.questions = data
-        for (let i = 0; i < this.totalQuestions; i++ ) {
-          this.answers.push(getEmptyAnswer())
-        }
       } else {
         console.error("failed to load 'questions' from Supabase")
         console.error(error)
@@ -65,10 +62,13 @@ export const useQuestionStore = defineStore({
       this.finished = true
     },
     async resetTest() {
+      console.debug("reseting test instance")
+      this.$reset()
       await this.loadQuestions()
-      this.current = 0
-      this.finished = false
-      this.correctAnswers = 0
+      for (let i = 0; i < this.totalQuestions; i++ ) {
+        this.answers.push(getEmptyAnswer())
+      }
+      console.debug("test instance ready")
     }
   },
   getters: {
