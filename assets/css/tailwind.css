@@ -26,6 +26,12 @@
     .question-box-marked {
         @apply bg-yellow-100;
     }
+    .question-box-good {
+        @apply bg-green-200;
+    }
+    .question-box-bad {
+        @apply bg-red-200;
+    }
     .question-text {
         @apply p-2 border-b border-black bg-indigo-800 text-white font-bold;
     }
@@ -51,14 +57,18 @@
             hover:bg-indigo-300 hover:text-black disabled:bg-gray-500 disabled:bg-gray-500 disabled:hover:text-white;
     }
 
-    .result {
-        @apply mt-2 text-xl font-bold;
+
+    .result-box {
+        @apply mx-auto my-2 p-2 border-2 border-black text-white text-center text-lg;
     }
-    .good {
-        @apply text-green-600;
+    .result-header {
+        @apply mb-2 text-2xl font-bold;
     }
-    .bad {
-        @apply text-red-700;
+    .result-good {
+        @apply bg-green-600;
+    }
+    .result-bad {
+        @apply bg-red-700;
     }
 
 }

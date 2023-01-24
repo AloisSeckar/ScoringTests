@@ -56,6 +56,7 @@ export const useQuestionStore = defineStore({
     },
     evaluateTest() {
       // TODO check for unanswered (here or in component?)
+      this.correctAnswers = 0
       for (let i = 0; i < this.totalQuestions; i++) {
         this.answers[i].correct = this.questions[i].solution === this.getAnswerString(i)
         if (this.answers[i].correct) {
