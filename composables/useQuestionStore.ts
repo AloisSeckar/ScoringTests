@@ -8,9 +8,9 @@ export const useQuestionStore = defineStore({
     return {
       questions: [] as Question[],
       answers: [] as Answer[],
+      totalQuestions: useRuntimeConfig().public.testLength,
       current: 0,
       finished: false,
-      totalQuestions: useRuntimeConfig().public.testLength,
       correctAnswers: 0,
     }
   },
@@ -56,7 +56,6 @@ export const useQuestionStore = defineStore({
     },
     evaluateTest() {
       // TODO check for unanswered (here or in component?)
-      this.correctAnswers = 0
       for (let i = 0; i < this.totalQuestions; i++) {
         this.answers[i].correct = this.questions[i].solution === this.getAnswerString(i)
         if (this.answers[i].correct) {
@@ -64,6 +63,12 @@ export const useQuestionStore = defineStore({
         }
       }
       this.finished = true
+    },
+    async resetTest() {
+      await this.loadQuestions()
+      this.current = 0
+      this.finished = false
+      this.correctAnswers = 0
     }
   },
   getters: {

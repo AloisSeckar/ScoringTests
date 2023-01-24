@@ -1,10 +1,20 @@
 <template>
     <div class="controls-box">
-        <input class="control" type="button" value="Přechozí otázka" @click="data.previousQuestion" :disabled="prevDisabled" />
-        <input class="control" type="button" value="Označit" @click="data.markAnswer(data.current)" v-if="!currentAnswer?.marked"/>
-        <input class="control" type="button" value="Resetovat" @click="data.resetAnswer(data.current)" v-if="currentAnswer?.marked" />
-        <input class="control" type="button" value="Vyhodnotit" @click="data.evaluateTest()" />
-        <input class="control" type="button" value="Další otázka" @click="data.nextQuestion" :disabled="nextDisabled" />
+        <input class="control" type="button" value="Přechozí otázka" 
+            @click="data.previousQuestion" :disabled="prevDisabled" />
+
+        <input class="control" type="button" value="Označit" 
+            @click="data.markAnswer(data.current)" v-if="!currentAnswer?.marked" :disabled="data.finished" />
+        <input class="control" type="button" value="Resetovat" 
+            @click="data.resetAnswer(data.current)" v-if="currentAnswer?.marked" :disabled="data.finished" />
+
+        <input class="control" type="button" value="Vyhodnotit" 
+            @click="data.evaluateTest()" v-if="!data.finished" />
+        <input class="control" type="button" value="Nový test" 
+            @click="data.resetTest()" v-if="data.finished" />
+
+        <input class="control" type="button" value="Další otázka" 
+            @click="data.nextQuestion" :disabled="nextDisabled" />
     </div>
 </template>
 
