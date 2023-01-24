@@ -19,6 +19,9 @@ CREATE TABLE "questions" (
 	"valid"  boolean NOT NULL
 );
 
+DROP VIEW IF EXISTS "random_questions";
+CREATE VIEW "random_questions" AS SELECT * FROM "questions" ORDER BY random();
+
 -- NOTE: those are only a few sample questions - production DB has more
 
 INSERT INTO "questions" VALUES (1, 'Pálkař odpálí míč do zadního pole. CF míč sebere a přihodí na druhou metu, kde SS hraje nucený aut běžce z 1. mety. Co platí o výsledku rozehry?',

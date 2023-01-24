@@ -18,7 +18,7 @@ export const useQuestionStore = defineStore({
     async loadQuestions() {
       const supabase = useSupabaseClient()
       const { data, error } = await supabase
-        .from("questions")
+        .from("random_questions")
         .select("id, question, answer1, answer2, answer3, answer4, solution")
         .eq("valid", true)
         .limit(this.totalQuestions)
