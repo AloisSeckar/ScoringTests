@@ -52,14 +52,19 @@ export const useQuestionStore = defineStore({
       }
     },
     evaluateTest() {
-      // TODO check for unanswered (here or in component?)
-      for (let i = 0; i < this.totalQuestions; i++) {
-        this.answers[i].correct = this.questions[i].solution === this.getAnswerString(i)
-        if (this.answers[i].correct) {
-          this.correctAnswers++
+      const unmarked = this.answers.find(a => a.marked === false)
+      if (unmarked) {
+        // TODO allow user override even if not all marked
+        useModalStore().showModal('Test není dokončen', 'Napřed označte všechny otázky jako hotové')
+      } else {
+        for (let i = 0; i < this.totalQuestions; i++) {
+          this.answers[i].correct = this.questions[i].solution === this.getAnswerString(i)
+          if (this.answers[i].correct) {
+            this.correctAnswers++
+          }
         }
+        this.finished = true
       }
-      this.finished = true
     },
     async resetTest() {
       console.debug("reseting test instance")
