@@ -1,21 +1,21 @@
 <template>
-    <div :class="['result-box', good ? 'result-good' : 'result-bad']">
-        <div class="result-header" v-if="good">
-            Gratulujeme k úspěšnému složení testu zapisovatele
-        </div>
-        <div class="result-header" v-else>
-            Test nebyl úspěšný :(
-        </div>
-        <div class="text-xl">
-            Výsledek: <strong>{{ score }} %</strong>  (limit 70 %)
-        </div>
-        <div>
-            Otázek: <strong>{{ total }}</strong>
-        </div>
-        <div>
-            Správně: <strong>{{ correct }}</strong>
-        </div>
+  <div :class="['result-box', good ? 'result-good' : 'result-bad']">
+    <div v-if="good" class="result-header">
+      Gratulujeme k úspěšnému složení testu zapisovatele
     </div>
+    <div v-else class="result-header">
+      Test nebyl úspěšný :(
+    </div>
+    <div class="text-xl">
+      Výsledek: <strong>{{ score }} %</strong>  (limit 70 %)
+    </div>
+    <div>
+      Otázek: <strong>{{ total }}</strong>
+    </div>
+    <div>
+      Správně: <strong>{{ correct }}</strong>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

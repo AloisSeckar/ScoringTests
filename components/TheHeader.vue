@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <img src="/logo.webp" alt="Czech Scorekeepers - online test" />
-        <h1>Czech Scorekeepers - online test</h1>
-        <span>
-            <a href="https://www.baseball.cz/"><img src="/cba.webp" alt="ČBA" /></a>
-            <a href="https://softball.cz/"><img src="/csa.webp" alt="ČSA" /></a>
-        </span> 
-    </div>
+  <div>
+    <img src="/logo.webp" alt="Czech Scorekeepers - online test">
+    <h1>Czech Scorekeepers - online test</h1>
+    <span>
+      <a href="https://www.baseball.cz/"><img src="/cba.webp" alt="ČBA"></a>
+      <a href="https://softball.cz/"><img src="/csa.webp" alt="ČSA"></a>
+    </span>
+  </div>
 </template>
 
 <style scoped>

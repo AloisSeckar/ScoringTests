@@ -1,6 +1,6 @@
+import { defineStore } from 'pinia'
 import Answer from '@/data/Answer'
 import Question from '@/data/Question'
-import { defineStore } from 'pinia'
 
 export const useQuestionStore = defineStore({
   id: 'question-store',
@@ -11,16 +11,16 @@ export const useQuestionStore = defineStore({
       totalQuestions: useRuntimeConfig().public.testLength,
       current: 0,
       finished: false,
-      correctAnswers: 0,
+      correctAnswers: 0
     }
   },
   actions: {
-    async loadQuestions() {
+    async loadQuestions () {
       const supabase = useSupabaseClient()
       const { data, error } = await supabase
-        .from("random_questions")
-        .select("id, question, answer1, answer2, answer3, answer4, solution")
-        .eq("valid", true)
+        .from('random_questions')
+        .select('id, question, answer1, answer2, answer3, answer4, solution')
+        .eq('valid', true)
         .limit(this.totalQuestions)
 
       if (data) {
@@ -31,27 +31,27 @@ export const useQuestionStore = defineStore({
         console.error(error)
       }
     },
-    previousQuestion(): void {
+    previousQuestion (): void {
       if (this.current > 0) {
         this.current--
       }
     },
-    nextQuestion(): void {
+    nextQuestion (): void {
       if (this.current < useRuntimeConfig().public.testLength - 1) {
         this.current++
       }
     },
-    markAnswer(index: number): void {
-      if (0 <= index && index < 5) {
+    markAnswer (index: number): void {
+      if (index >= 0 && index < 5) {
         this.answers[index].marked = true
       }
     },
-    resetAnswer(index: number): void {
-      if (0 <= index && index < 5) {
+    resetAnswer (index: number): void {
+      if (index >= 0 && index < 5) {
         this.answers[index] = getEmptyAnswer()
       }
     },
-    evaluateTest() {
+    evaluateTest () {
       const unmarked = this.answers.find(a => a.marked === false)
       if (unmarked) {
         // TODO allow user override even if not all marked
@@ -66,14 +66,14 @@ export const useQuestionStore = defineStore({
         this.finished = true
       }
     },
-    async resetTest() {
-      console.debug("reseting test instance")
+    async resetTest () {
+      console.debug('reseting test instance')
       this.$reset()
       await this.loadQuestions()
-      for (let i = 0; i < this.totalQuestions; i++ ) {
+      for (let i = 0; i < this.totalQuestions; i++) {
         this.answers.push(getEmptyAnswer())
       }
-      console.debug("test instance ready")
+      console.debug('test instance ready')
     }
   },
   getters: {
@@ -82,7 +82,7 @@ export const useQuestionStore = defineStore({
     getAnswerString: (state) => {
       return (index: number): string => {
         const answer = state.answers[index]
-        let answerString: string = ''
+        let answerString = ''
         if (answer.a) {
           answerString += 'a'
         }
@@ -97,11 +97,11 @@ export const useQuestionStore = defineStore({
         }
         return answerString
       }
-    },
+    }
   }
 })
 
-export function getEmptyAnswer(): Answer {
+export function getEmptyAnswer (): Answer {
   return {
     a: false,
     b: false,

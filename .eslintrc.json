@@ -1,0 +1,10 @@
+{
+    "root": true,
+    "extends": [
+        "@nuxtjs/eslint-config-typescript"
+    ],
+    "rules": {
+        "no-console": "off", // TODO get rid of native console
+        "vue/no-v-html": "off"
+    }
+}
