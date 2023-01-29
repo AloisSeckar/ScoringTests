@@ -11,7 +11,7 @@
       v-if="!currentAnswer?.marked"
       class="control"
       type="button"
-      value="Označit"
+      value="Označit otázku"
       :disabled="data.finished"
       @click="data.markAnswer(data.current)"
     >
@@ -19,7 +19,7 @@
       v-if="currentAnswer?.marked"
       class="control"
       type="button"
-      value="Resetovat"
+      value="Resetovat otázku"
       :disabled="data.finished"
       @click="data.resetAnswer(data.current)"
     >
@@ -27,7 +27,7 @@
       v-if="!data.finished"
       class="control"
       type="button"
-      value="Vyhodnotit"
+      value="Vyhodnotit test"
       @click="data.evaluateTest()"
     >
     <input

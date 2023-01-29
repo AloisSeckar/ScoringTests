@@ -52,11 +52,8 @@ export const useQuestionStore = defineStore({
       }
     },
     evaluateTest () {
-      const unmarked = this.answers.find(a => a.marked === false)
-      if (unmarked) {
-        // TODO allow user override even if not all marked
-        useModalStore().showModal('Test není dokončen', 'Napřed označte všechny otázky jako hotové')
-      } else {
+      const evaluate = confirm('Vyhodnocení test ukončí a už nebudou možné další změny.\nChcete test skutečně ukončit a vyhodnotit? výsledek')
+      if (evaluate) {
         for (let i = 0; i < this.totalQuestions; i++) {
           this.answers[i].correct = this.questions[i].solution === this.getAnswerString(i)
           if (this.answers[i].correct) {
