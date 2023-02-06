@@ -20,6 +20,10 @@
         @apply inline;
     }
 
+    .nav-box {
+        @apply mx-auto my-2 p-2 border border-indigo-800 bg-yellow-100 text-indigo-800 text-center text-xl;
+    }
+
     .question-box {
         @apply mx-auto border-2 border-black;
     }
@@ -33,7 +37,7 @@
         @apply bg-red-200;
     }
     .question-text {
-        @apply p-2 border-b border-black bg-indigo-800 text-white font-bold;
+        @apply p-2 border border-black bg-indigo-800 text-white font-bold;
     }
     .question-answer {
         @apply p-2 border border-black border-collapse;
@@ -48,7 +52,6 @@
         @apply mx-2;
     }
 
-
     .controls-box {
         @apply mx-auto border-2 border-black bg-indigo-800 text-white text-center;
     }
@@ -56,7 +59,6 @@
         @apply mx-1 my-2 px-2 py-1 w-40 border border-white rounded 
             hover:bg-indigo-300 hover:text-black disabled:bg-gray-500 disabled:bg-gray-500 disabled:hover:text-white;
     }
-
 
     .result-box {
         @apply mx-auto my-2 p-2 border-2 border-black text-white text-center text-lg;
